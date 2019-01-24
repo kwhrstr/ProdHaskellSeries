@@ -1,0 +1,67 @@
+name:                ProdHaskellSeries
+version:             0.1.0.0
+github:              "Github username here/ProdHaskellSeries"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "Author email here"
+copyright:           "2018 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            App category here
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/Github username here/ProdHaskellSeries#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- monad-logger
+- mtl
+- persistent
+- persistent-postgresql
+- persistent-template
+- servant
+- servant-server
+- servant-client
+- transformers
+- text
+- warp
+- hedis
+- bytestring
+- time
+- esqueleto >= 2.5.3
+
+library:
+  source-dirs: src
+
+executables:
+  ProdHaskellSeries-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ProdHaskellSeries
+
+tests:
+  ProdHaskellSeries-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ProdHaskellSeries
+    - http-client
+    - http-client-tls
+    - hspec

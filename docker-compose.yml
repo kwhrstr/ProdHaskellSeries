@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres:10.5
+    container_name: prod-haskell-series-postgres
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:5.0.3
+    container_name: prod-haskell-series-redis
+    ports:
+      - "6379:6379"
